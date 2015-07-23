@@ -7,7 +7,7 @@ def fct(n):
 def c(n,d):
 	return fct(n)/(fct(d)*fct(n-d))
 
-def mullTo(x,h=0):#mulligan to a x-of but keep any c card hand
+def mullTo(x,h=0):#mulligan to a x-of but keep any h card hand
 	cumSum = 1;
 	d = 7;
 	while (d >= h):
