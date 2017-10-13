@@ -4,10 +4,10 @@ import math
 import sys
 
 def fct(n):
-	return math.factorial(n)
+    return math.factorial(n)
 
 def c(n,d):
-	return fct(n)/(fct(d)*fct(n-d))
+    return fct(n)/(fct(d)*fct(n-d))
 
 def mullTo(x,h=0, crds=60, d=7):
     """ x represents the number of desired cards in the deck, one of which constitutes a keep
@@ -15,10 +15,10 @@ def mullTo(x,h=0, crds=60, d=7):
         crds is the number of cards in the deck at the start
         d is the number of cards to draw initially
     """
-	cumSum = 1;
-	while (d >= h):
-		cumSum = cumSum * c(crds-x,d)/c(crds,d)
-		d = d-1
-	return 1-cumSum
+    cumSum = 1;
+    while (d >= h):
+            cumSum = cumSum * c(crds-x,d)/c(crds,d)
+            d = d-1
+    return 1-cumSum
 
 print(mullTo(*map(int,sys.argv[1:])))
