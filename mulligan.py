@@ -9,16 +9,17 @@ def fct(n):
 def c(n,d):
     return fct(n)/(fct(d)*fct(n-d))
 
-def mullTo(x,h=0, crds=60, d=7):
-    """ x represents the number of desired cards in the deck, one of which constitutes a keep
-        h is the minimum hand size (h=4 means keep any 4 card hand)
-        crds is the number of cards in the deck at the start
-        d is the number of cards to draw initially
+def mull_to(pop, min_hand=0, deck_size=60, hand_size=7):
+    """ pop represents the number of desired cards in the deck, one of which constitutes a keep
+        min_hand is the minimum hand size (min_hand=4 means keep any 4 card hand)
+        deck_size is the number of cards in the deck at the start
+        hand_size is the number of cards to draw initially
     """
-    cumSum = 1;
-    while (d >= h):
-            cumSum = cumSum * c(crds-x,d)/c(crds,d)
-            d = d-1
-    return 1-cumSum
+    chance_of_failue = 1;
+    while (hand_size >= min_hand):
+            chance_of_failue *= c(deck_size - pop, hand_size)/c(deck_size, hand_size)
+            hand_size = hand_size-1
+    return 1 - chance_of_failue
 
-print(mullTo(*map(int,sys.argv[1:])))
+if __name__ == "__main__":
+    print(mull_to(*map(int,sys.argv[1:])))
