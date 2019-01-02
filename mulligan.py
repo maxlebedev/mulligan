@@ -15,9 +15,9 @@ def mull_to(pop, min_hand_size=0, deck_size=60, hand_size=7):
         deck_size is the number of cards in the deck at the start
         hand_size is the number of cards to draw initially
     """
-    chance_of_failure = 1;
+    chance_of_failure = 1
     while (hand_size >= min_hand_size):
-            chance_of_failue *= c(deck_size - pop, hand_size)/c(deck_size, hand_size)
+            chance_of_failure *= c(deck_size - pop, hand_size)/c(deck_size, hand_size)
             hand_size -= 1
     return 1 - chance_of_failure
 
